@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct GameView: View {
+    
+    @Binding var target: Int
+    @Binding var value: Double
+    var alpha: Double
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Передвинь слайдер, как можно ближе к: \(target)")
+            HStack {
+                Text("0")
+                UISliderRepresentable(
+                    value: $value,
+                    alpha: alpha
+                )
+                Text("100")
+            }
+        }
     }
 }
 
 #Preview {
-    GameView()
+    GameView(target: .constant(1), value: .constant(10), alpha: 0.5)
 }
