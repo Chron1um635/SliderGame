@@ -45,7 +45,7 @@ extension UISliderRepresentable {
         }
         
         @objc func valueChanged(_ sender: UISlider) {
-            sender.value = Float(value)
+            value = Double(sender.value)
         }
     }
 }
